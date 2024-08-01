@@ -4,6 +4,7 @@ import { FaStar } from 'react-icons/fa';
 // import './ProductDetails.css';
 import { useNavigate } from 'react-router-dom';
 import StarRating from './StarRating';
+import "./page.css"
 const product = {
   id: 1,
   images: [
@@ -21,6 +22,8 @@ const product = {
     { rating: 4, comment: 'Good quality but a bit pricey.' },
     { rating: 2, comment: 'Poor Quality not working' }
   ],
+  delete:'₹299.99',
+  percentage:'33% off',
   relatedProducts: [
     {
       id: 2,
@@ -29,6 +32,8 @@ const product = {
       price: '₹89.99',
       rating: 2.8,
       description: 'Durable headphones with deep bass and clear treble.',
+      oldPrice: '₹799.99',
+      discount: '25% off',
 
     },
     {
@@ -38,6 +43,8 @@ const product = {
       price: '₹109.99',
       rating: 2.8,
       description: 'Durable headphones with deep bass and clear treble.',
+      oldPrice: '₹799.99',
+      discount: '25% off',
 
     },
     {
@@ -46,7 +53,9 @@ const product = {
       title: 'CADDLE & TOES Rock Car Remote Control',
       description: 'Durable headphones with deep bass and clear treble.',
       price: '₹109.99',
-      rating: 4.8
+      rating: 4.8,
+      oldPrice: '₹799.99',
+      discount: '25% off',
     }
   ]
 };
@@ -100,12 +109,15 @@ const ProductDetails = () => {
           <p><strong>Size:</strong> {product.size}</p>
           <p><strong>Color:</strong> {product.color}</p>
           <p>{product.description}</p>
-          <h3>{product.price}</h3>
+          <h3>{product.price}<span>
+          <span className='price-delete'>{product.delete}</span>
+          <span className='percentage-off'>{product.percentage}</span>
+            </span></h3>
           <Button variant="primary" className="mt-2" onClick={Gotocartpage}>Add to Cart</Button>
         </Col>
       </Row>
       <Row className="mt-3">
-        <h3>Similar Products</h3>
+        <h3 className='recomanded'>Here are some related suggestions</h3>
   {product.relatedProducts.map((item) => (
     <Col key={item.id} md={4} className="mb-4">
       <Card className="h-100 shadow-sm card-hover" style={{ cursor: 'pointer' }}>
@@ -116,7 +128,11 @@ const ProductDetails = () => {
           <Card.Title className="text-truncate">{item.title}</Card.Title>
           <Card.Text className="text-muted text-truncate">{item.description}</Card.Text>
           <div className="mt-auto d-flex justify-content-between align-items-center">
-            <h6 className="mb-0 text-primary">{item.price}</h6>
+          <h6 className="mb-0 text-primarys">
+                        {item.price}
+                        <span className='price-delete'>{item.oldPrice}</span>
+                        <span className='percentage-off'>{item.discount}</span>
+                      </h6>
             <div className="d-flex align-items-center">
               <span className="me-2">{item.rating}</span>
               <StarRating rating={item.rating} />

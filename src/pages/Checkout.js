@@ -1,12 +1,35 @@
-import React from 'react';
-// import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import "./page.css"
+import { useNavigate } from 'react-router-dom';
 const Checkout = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { cartItems, totalAmount } = location.state || { cartItems: [], totalAmount: 0 };
+
+  const discountRate = 0.05;
+  const shippingCost = 8.00;
+  const taxRate = 0.05;
+
+  const discount = totalAmount * discountRate;
+  const tax = totalAmount * taxRate;
+  const finalTotal = totalAmount + shippingCost - discount + tax;
+  const ChangeAdress = () => {
+    navigate('/address')
+  }
+  const ordeconfiramtion = () => {
+    navigate('/order')
+  }
+  const [address, setAddress] = useState({
+    shipping: '180 North King Street, Northhampton MA 1060',
+    billing: '180 North King Street, Northhampton MA 1060'
+  });
   return (
+
     <div className="container py-4">
       <div className="d-flex flex-column align-items-start">
         <h1 className="h3">Order #13432</h1>
-        <p className="text-muted">21st March 2024 at 10:34 PM</p>
+        <span className="text-muted">21st March 2024 at 10:34 PM</span>
       </div>
       <div className="row mt-4">
         <div className="col-12 col-xl-8 mb-4">
@@ -15,98 +38,66 @@ const Checkout = () => {
               <h5 className="mb-0">Customer’s Cart</h5>
             </div>
             <div className="card-body">
-              <div className="d-flex flex-column flex-md-row align-items-start mb-4">
-                <div className="w-100 w-md-40 mb-4 mb-md-0">
-                  <img
-                    className="img-fluids"
-                    src="https://rukminim2.flixcart.com/image/612/612/khuvxjk0-0/vehicle-pull-along/x/w/y/friction-powered-mini-monster-cars-for-kids-with-big-rubber-original-imafxruqgz7rw4xw.jpeg?q=70"
-                    alt="dress"
-                  />
-                </div>
-                <div className="d-flex flex-column w-100">
-                  <div className="d-flex flex-column flex-md-row justify-content-between mb-4">
-                    <div className="d-flex flex-column">
-                      <h5 className="mb-3">Premium Quality Dress</h5>
-                      <p className="mb-1"><strong>Style:</strong> fizz Monster Truck Rock Crawler metal</p>
-                      <p className="mb-1"><strong>Size:</strong> Small</p>
-                      <p className="mb-1"><strong>Color:</strong> Light Blue</p>
-                    </div>
-                    <div className="d-flex flex-column align-items-end">
-                      <p className="mb-1">₹36.00 <span className="text-muted text-decoration-line-through">₹45.00</span></p>
-                      <p className="mb-1">Quantity: 01</p>
-                      <p className="mb-0 font-weight-bold">₹36.00</p>
+              {cartItems.map((item, index) => (
+                <div className="d-flex flex-column flex-md-row align-items-start mb-4" key={index}>
+                  <div className="w-100 w-md-40 mb-4 mb-md-0">
+                    <img
+                      className="img-fluids"
+                      src={item.image}
+                      alt={item.name}
+                    />
+                  </div>
+                  <div className="d-flex flex-column w-100">
+                    <div className="d-flex flex-column flex-md-row justify-content-between mb-4">
+                      <div className="d-flex flex-column">
+                        <h5 className="mb-3">{item.name}</h5>
+                        <p className="mb-3"><strong>Style:</strong> {item.style}</p>
+                        <p className="mb-3"><strong>Size:</strong> {item.size}</p>
+                        <p className="mb-3"><strong>Color:</strong> {item.color}</p>
+                        <p className="mb-3"><strong>Amount:</strong>₹{item.price} <span className="text-muted text-decoration-line-through">₹{item.originalPrice}</span></p>
+                        <p className="mb-3"><strong>Quantity:</strong> {item.quantity}</p>
+                        <p className="mb-3 font-weight-bold"><strong>Total Amount:</strong>₹{item.price * item.quantity}</p>
+
+                      </div>
+        
                     </div>
                   </div>
+                  
                 </div>
-              </div>
-              <div className="d-flex flex-column flex-md-row align-items-start">
-                <div className="w-100 w-md-40 mb-4 mb-md-0">
-                  <img
-                    className="img-fluids"
-                    src="https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/1/r/x/remote-controlled-rock-crawler-rc-monster-truck-4-wheel-drive-1-original-imahyh9vssmzggtn.jpeg?q=70"
-                    alt="dress"
-                  />
-                </div>
-                <div className="d-flex flex-column w-100">
-                  <div className="d-flex flex-column flex-md-row justify-content-between">
-                    <div className="d-flex flex-column">
-                      <h5 className="mb-3">High Quality Italic Dress</h5>
-                      <p className="mb-1"><strong>Style:</strong> CADDLE & TOES Rock Car Remote Control</p>
-                      <p className="mb-1"><strong>Size:</strong> Small</p>
-                      <p className="mb-1"><strong>Color:</strong> Light Blue</p>
-                    </div>
-                    <div className="d-flex flex-column align-items-end">
-                      <p className="mb-1">₹20.00 <span className="text-muted text-decoration-line-through">₹30.00</span></p>
-                      <p className="mb-1">Quantity: 01</p>
-                      <p className="mb-0 font-weight-bold">₹20.00</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                
+              ))}
             </div>
+            
           </div>
           <div className="d-flex flex-column flex-md-row">
-            <div className="card mb-4 flex-fill me-md-3">
+            <div className="card mb-4 flex-fill">
               <div className="card-header">
                 <h5 className="mb-0">Summary</h5>
               </div>
               <div className="card-body">
                 <div className="d-flex justify-content-between mb-3">
                   <span>Subtotal</span>
-                  <span>₹56.00</span>
+                  <span>₹{totalAmount}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-3">
-                  <span>Discount <span className="badge bg-secondary">STUDENT</span></span>
-                  <span>-₹28.00 (5% GST)</span>
+                  <span>Discount</span>
+                  <span>-₹{discount.toFixed(2)}</span>
                 </div>
                 <div className="d-flex justify-content-between mb-3">
                   <span>Shipping</span>
-                  <span>₹8.00</span>
+                  <span>₹{shippingCost.toFixed(2)}</span>
+                </div>
+                <div className="d-flex justify-content-between mb-3">
+                  <span>Tax</span>
+                  <span>₹{tax.toFixed(2)} (5% GST)</span>
                 </div>
                 <div className="d-flex justify-content-between font-weight-bold">
                   <span>Total</span>
-                  <span>₹36.00</span>
+                  <span>₹{finalTotal.toFixed(2)}</span>
                 </div>
               </div>
-            </div>
-            <div className="card mb-4 flex-fill ms-md-3">
-              <div className="card-header">
-                <h5 className="mb-0">Shipping</h5>
-              </div>
-              <div className="card-body">
-                <div className="d-flex justify-content-between align-items-start mb-4">
-                  <div className="d-flex align-items-start">
-                    <img src="https://i.ibb.co/L8KSdNQ/image-3.png" alt="logo" className="me-3" width="40" height="40" />
-                    <div>
-                      <p className="mb-0"><strong>DPD Delivery</strong></p>
-                      <p className="text-muted mb-0">Delivery with 24 Hours</p>
-                    </div>
-                  </div>
-                  <span>₹8.00</span>
-                </div>
-                <div className="d-flex justify-content-center">
-                  <button className="btn btn-dark">View Carrier Details</button>
-                </div>
+              <div className="d-flex justify-content-center mb-2">
+                <button className="btn btn-outline-dark" onClick={ordeconfiramtion}>Process to payment</button>
               </div>
             </div>
           </div>
@@ -137,7 +128,7 @@ const Checkout = () => {
                 <p className="text-muted">180 North King Street, Northhampton MA 1060</p>
               </div>
               <div className="d-flex justify-content-center">
-                <button className="btn btn-outline-dark">Edit Details</button>
+                <button className="btn btn-outline-dark" onClick={ChangeAdress}>Change Address</button>
               </div>
             </div>
           </div>
@@ -146,6 +137,5 @@ const Checkout = () => {
     </div>
   );
 };
-
 
 export default Checkout;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Dropdown, DropdownButton,Form } from 'react-bootstrap';
 import StarRating from './StarRating';
 import "./page.css";
+import { useNavigate } from 'react-router-dom';
 
 const categories = [
   {
@@ -9,35 +10,35 @@ const categories = [
     products: [
       {
         id: 1,
-        title: 'Shampoo',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
+        title: 'Herbal Shampoo',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
         price: '₹199.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
+        oldPrice: '₹299.99',
+        discount: '33% off',
         rating: 4.5,
-        description: 'Cleanses and nourishes your hair.'
+        description: 'Cleanses and nourishes your hair with herbal extracts.',
+        onSale: true
       },
       {
         id: 2,
-        title: 'Conditioner',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
+        title: 'Silky Smooth Conditioner',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
         price: '₹249.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
+        oldPrice: '₹349.99',
+        discount: '29% off',
         rating: 4.0,
-        description: 'Makes your hair smooth and shiny.'
+        description: 'Makes your hair smooth and shiny with silk proteins.'
       },
       {
         id: 3,
-        title: 'Conditioner',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
-        price: '₹249.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
-        rating: 4.0,
-        description: 'Makes your hair smooth and shiny.'
+        title: 'Anti-Dandruff Shampoo',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        price: '₹149.99',
+        oldPrice: '₹199.99',
+        discount: '25% off',
+        rating: 4.2,
+        description: 'Effectively removes dandruff and prevents its recurrence.'
       }
-    
     ]
   },
   {
@@ -45,35 +46,35 @@ const categories = [
     products: [
       {
         id: 1,
-        title: 'Face Wash',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
+        title: 'Refreshing Face Wash',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
         price: '₹99.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
+        oldPrice: '₹149.99',
+        discount: '33% off',
         rating: 4.3,
-        description: 'Cleanses your face gently.'
+        description: 'Cleanses your face gently and leaves it refreshed.'
       },
       {
         id: 2,
-        title: 'Face Cream',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
+        title: 'Moisturizing Face Cream',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
         price: '₹149.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
+        oldPrice: '₹199.99',
+        discount: '25% off',
         rating: 4.1,
-        description: 'Moisturizes and protects your face.'
+        description: 'Moisturizes and protects your face all day long.'
       },
       {
         id: 3,
-        title: 'Face Cream',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
-        price: '₹149.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
-        rating: 4.1,
-        description: 'Moisturizes and protects your face.'
+        title: 'Anti-Aging Serum',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        price: '₹299.99',
+        oldPrice: '₹399.99',
+        discount: '25% off',
+        rating: 4.4,
+        description: 'Reduces the appearance of fine lines and wrinkles.',
+        onSale: true
       }
-     
     ]
   },
   {
@@ -81,40 +82,41 @@ const categories = [
     products: [
       {
         id: 1,
-        title: 'Fan',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
-        price: '₹99.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
+        title: 'Portable Fan',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        price: '₹599.99',
+        oldPrice: '₹799.99',
+        discount: '25% off',
         rating: 4.3,
-        description: 'Cleanses your face gently.'
+        description: 'Compact and portable fan for instant cooling.'
       },
       {
         id: 2,
-        title: 'Face Cream',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
-        price: '₹149.99',
-        oldPrice: '₹21,999',
+        title: 'Bluetooth Speaker',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        price: '₹999.99',
+        oldPrice: '₹1299.99',
         discount: '23% off',
-        rating: 4.1,
-        description: 'Moisturizes and protects your face.'
+        rating: 4.5,
+        description: 'High-quality sound with wireless connectivity.',
+        onSale: true
       },
       {
         id: 3,
-        title: 'Face Cream',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
-        price: '₹149.99',
-        oldPrice: '₹21,999',
-        discount: '23% off',
+        title: 'Smartphone Charger',
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        price: '₹299.99',
+        oldPrice: '₹399.99',
+        discount: '25% off',
         rating: 4.1,
-        description: 'Moisturizes and protects your face.'
+        description: 'Fast charging for all smartphone models.'
       }
-     
     ]
   }
 ];
 
 const CategoriesPage = () => {
+  const navigate = useNavigate();
   const [sortOrder, setSortOrder] = useState('');
   const [filterBy, setFilterBy] = useState('');
 
@@ -122,8 +124,8 @@ const CategoriesPage = () => {
   const handleSortChange = (eventKey) => {
     setSortOrder(eventKey);
   };
-const goToDetailPage = () =>{
-  
+const goToDetailPage = (id) =>{
+  navigate(`/product/${id}`);
 }
   // Handle filtering
   const handleFilterChange = (event) => {
@@ -151,7 +153,11 @@ const goToDetailPage = () =>{
 
   return (
     <Container className="mt-3">
-      <h2 className="text-center mb-4">Categories</h2>
+       <Row className='mb-2'>
+        <Col>
+          <h1>Categories</h1>
+        </Col>
+      </Row>
       <Row className="mb-4">
         <Col className="d-flex justify-content-between align-items-center">
           <DropdownButton id="dropdown-basic-button" title="Sort by" className="me-2" onSelect={handleSortChange}>
@@ -163,7 +169,7 @@ const goToDetailPage = () =>{
             <option value="">Filter by</option>
             <option value="price">Price</option>
             <option value="rating">Rating</option>
-            {/* Add more filter options as needed */}
+            <option value="discount">Discount</option>
           </Form.Select>
         </Col>
       </Row>
@@ -175,6 +181,7 @@ const goToDetailPage = () =>{
             {getSortedAndFilteredProducts(category.products).map((product) => (
               <Col key={product.id} xs={12} md={6} lg={4} className="mb-4">
                 <Card className="h-100 shadow-sm" onClick={() => goToDetailPage(product.id)} style={{ cursor: 'pointer' }}>
+                {product.onSale && <span className="sale-badge">Sale!</span>}
                   <div className="d-flex justify-content-center" style={{ height: '250px' }}>
                     <Card.Img variant="top" src={product.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto' }} />
                   </div>

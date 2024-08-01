@@ -7,7 +7,11 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import UserAccount from './pages/UserAccount';
 import Header from './components/Header';
-import OrderDetails from './pages/order';
+// import OrderDetails from './pages/order';
+import Address from './pages/Adress';
+import OrderPage from './pages/OrderPage';
+import OrderDetilas from './pages/orderDetails';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -19,8 +23,11 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order" element={<OrderPage />} />
+        <Route path="/address" element={<Address />} />
         <Route path="/account" element={<UserAccount />} />
-        <Route path="/order" element={<OrderDetails />} />
+        <Route path="/orderDetails" element={<OrderDetilas />} />
+        <Route path="/Profile" element={<Profile />} />
       </Routes>
     </Router>
   );

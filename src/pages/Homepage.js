@@ -13,7 +13,10 @@ const products = [
     title: 'WISHKEY Remote Control Super High Speed Racing Car',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹99.99',
-    rating: 1.5
+    rating: 1.5,
+    oldPrice: '₹799.99',
+    discount: '25% off',
+    onSale: true
   },
   {
     id: 3,
@@ -21,7 +24,9 @@ const products = [
     title: 'fizz Monster Truck Rock Crawler metal',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
-    rating: 4.8
+    rating: 4.8,
+    oldPrice: '₹799.99',
+    discount: '25% off',
   },
   {
     id: 4,
@@ -29,7 +34,10 @@ const products = [
     title: 'CADDLE & TOES Rock Car Remote Control',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
-    rating: 4.8
+    rating: 4.8,
+    oldPrice: '₹799.99',
+    discount: '25% off',
+    onSale: true
   },
   {
     id: 5,
@@ -37,7 +45,9 @@ const products = [
     title: 'Aganta Remote Control Car Electronic 3D Lights',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
-    rating: 2.8
+    rating: 2.8,
+    oldPrice: '₹799.99',
+    discount: '25% off',
   },
   {
     id: 6,
@@ -45,7 +55,9 @@ const products = [
     title: 'AR KIDS TOYS Mini Monster Truck Friction',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
-    rating: 4.8
+    rating: 4.8,
+    oldPrice: '₹799.99',
+    discount: '25% off',
   },
   {
     id: 7,
@@ -53,7 +65,10 @@ const products = [
     title: 'CADDLE & TOES Rock Car Remote Control ',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
-    rating: 4.8
+    rating: 4.8,
+    oldPrice: '₹799.99',
+    discount: '25% off',
+    onSale: true
   }
 ];
 const Homepage = () => {
@@ -102,6 +117,7 @@ const Homepage = () => {
         {products.map((product) => (
           <Col key={product.id} xs={12} md={6} lg={4} className="mb-4">
             <Card className="h-100 shadow-sm" onClick={() => goToDetailPage(product.id)} style={{ cursor: 'pointer' }}>
+            {product.onSale && <span className="sale-badge">Sale!</span>}
               <div className="d-flex justify-content-center" style={{ height: '250px' }}>
                 <Card.Img variant="top" src={product.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto' }} />
               </div>
@@ -109,7 +125,12 @@ const Homepage = () => {
                 <Card.Title className="text-truncate">{product.title}</Card.Title>
                 <Card.Text className="text-muted text-truncate">{product.description}</Card.Text>
                 <div className="mt-auto d-flex justify-content-between align-items-center">
-                  <h6 className="mb-0 text-primarys">{product.price}<span className='price-delete'>₹21,999</span><span className='percentage-off'>23% off</span></h6>
+                  {/* <h6 className="mb-0 text-primarys">{product.price}<span className='price-delete'>₹21,999</span><span className='percentage-off'>23% off</span></h6> */}
+                  <h6 className="mb-0 text-primarys">
+                        {product.price}
+                        <span className='price-delete'>{product.oldPrice}</span>
+                        <span className='percentage-off'>{product.discount}</span>
+                      </h6>
                   
                   <div className="d-flex align-items-center">
                     <span className="me-2">{product.rating}</span>

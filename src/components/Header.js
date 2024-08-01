@@ -3,7 +3,7 @@ import { Navbar, Nav, Form, FormControl, Button, NavDropdown } from "react-boots
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
-import brandlogo from "../assests/banner/brandlogo.png";
+import brandlogo from "../assests/banner/brandlogo1.png";
 import "./header.css";
 const Header = () => {
   return (
