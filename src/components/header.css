@@ -1,0 +1,29 @@
+/* Styles for mobile view */
+.mobile-view-menu {
+  display: flex;
+  position: absolute;
+  top: 24px;
+  right: 83px;
+  gap: 10px;
+  z-index: 1030;
+}
+
+@media (max-width: 991.98px) { 
+  .navbar-collapse {
+    padding-right: 50px;
+  }
+}
+.header-text-class{
+  line-height: 20px;
+  font-size: 16px;
+  letter-spacing: .1px;
+  font-weight: 500;
+  color: #fff !important;
+}
+.header-text-class:hover{
+  line-height: 20px;
+  font-size: 16px;
+  letter-spacing: .1px;
+  font-weight: 500;
+  color: #000000 !important;
+}
