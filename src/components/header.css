@@ -20,10 +20,18 @@
   font-weight: 500;
   color: #fff !important;
 }
-.header-text-class:hover{
+.header-text-class {
+  transition: all 0.3s ease-in-out;
+}
+
+.header-text-class:hover {
   line-height: 20px;
   font-size: 16px;
-  letter-spacing: .1px;
+  letter-spacing: 0.1px;
   font-weight: 500;
-  color: #000000 !important;
+  color: #26e7e3 !important;
+}
+.header-bg-color{
+  color: white;
+  background: #433bd6;
 }

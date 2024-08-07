@@ -1,4 +1,3 @@
-// OrderDetails.js
 import React from 'react';
 import { Container, Card, Row, Col, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -17,29 +16,29 @@ const OrderDetails = () => {
     items: [
       {
         id: 1,
-        name: 'Product 1',
-        quantity: 2,
+        name: 'ANIKAA Laura Engineered Wood TV Entertainment Unit',
+        quantity: 1,
         price: '₹200',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70'
+        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/v/d/v/75-20-particle-board-8-9-mc-rw-01-macwud-75-32-wenge-original-imahyy5yhh8s3zya.jpeg?q=70'
       }
     ],
     shippingAddress: {
-      name: 'John Doe',
+      name: 'Pankaj',
       addressLine1: '123 Main St',
       addressLine2: 'Apt 4B',
-      city: 'Los Angeles',
-      state: 'CA',
-      zip: '90001',
-      country: 'USA'
+      city: 'Indore',
+      state: 'MP',
+      zip: '452001',
+      country: 'INDIA'
     },
     billingAddress: {
       name: 'John Doe',
       addressLine1: '123 Main St',
       addressLine2: 'Apt 4B',
-      city: 'Los Angeles',
-      state: 'CA',
-      zip: '90001',
-      country: 'USA'
+      city: 'Gwalior',
+      state: 'MP',
+      zip: '476115',
+      country: 'INDIA'
     },
     tracking: {
       status: 'Shipped',

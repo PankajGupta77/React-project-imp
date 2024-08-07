@@ -6,12 +6,48 @@ import { useNavigate } from 'react-router-dom';
 
 const categories = [
   {
+    name: 'Featured products',
+    products: [
+      {
+        id: 1,
+        title: 'Max Care Cold Pressed Virgin Coconut Oil, 500ml',
+        image: 'https://m.media-amazon.com/images/I/61oagbcgAtS._SY679_.jpg',
+        price: '₹599.99',
+        oldPrice: '₹799.99',
+        discount: '25% off',
+        rating: 4.3,
+        description: 'Compact and portable fan for instant cooling.'
+      },
+      {
+        id: 2,
+        title: 'Borges Olive Oil for Indian Cooking - 2 L |75% MUFA',
+        image: 'https://m.media-amazon.com/images/I/71Y0DuEYXXL._AC_UL480_QL65_.jpg',
+        price: '₹999.99',
+        oldPrice: '₹1299.99',
+        discount: '23% off',
+        rating: 4.5,
+        description: 'High-quality sound with wireless connectivity.',
+        onSale: true
+      },
+      {
+        id: 3,
+        title: 'Organic Tattva, Organic Unrefined Mustard/Sarso Cooking Oil (1L)',
+        image: 'https://m.media-amazon.com/images/I/71GnS7JbjBL._AC_UL480_QL65_.jpg',
+        price: '₹299.99',
+        oldPrice: '₹399.99',
+        discount: '25% off',
+        rating: 4.1,
+        description: 'Fast charging for all smartphone models.'
+      }
+    ]
+  },
+  {
     name: 'Hair',
     products: [
       {
         id: 1,
         title: 'Herbal Shampoo',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/61vHw06cE0L._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹199.99',
         oldPrice: '₹299.99',
         discount: '33% off',
@@ -22,7 +58,7 @@ const categories = [
       {
         id: 2,
         title: 'Silky Smooth Conditioner',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/51Iium9ms2L._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹249.99',
         oldPrice: '₹349.99',
         discount: '29% off',
@@ -32,7 +68,7 @@ const categories = [
       {
         id: 3,
         title: 'Anti-Dandruff Shampoo',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/511s5NsSlsL._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹149.99',
         oldPrice: '₹199.99',
         discount: '25% off',
@@ -47,7 +83,7 @@ const categories = [
       {
         id: 1,
         title: 'Refreshing Face Wash',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/41CWzyMvPSL._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹99.99',
         oldPrice: '₹149.99',
         discount: '33% off',
@@ -57,7 +93,7 @@ const categories = [
       {
         id: 2,
         title: 'Moisturizing Face Cream',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/61VxsUy5wmL._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹149.99',
         oldPrice: '₹199.99',
         discount: '25% off',
@@ -67,7 +103,7 @@ const categories = [
       {
         id: 3,
         title: 'Anti-Aging Serum',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/510CTJ7HzeL._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹299.99',
         oldPrice: '₹399.99',
         discount: '25% off',
@@ -83,7 +119,7 @@ const categories = [
       {
         id: 1,
         title: 'Portable Fan',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: 'https://m.media-amazon.com/images/I/71YS9UrcWpL._AC_UY327_FMwebp_QL65_.jpg',
         price: '₹599.99',
         oldPrice: '₹799.99',
         discount: '25% off',
@@ -92,8 +128,8 @@ const categories = [
       },
       {
         id: 2,
-        title: 'Bluetooth Speaker',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        title: 'Bluetooth Earbuds',
+        image: 'https://m.media-amazon.com/images/I/71DKCJdiEVL._AC_UL480_FMwebp_QL65_.jpg',
         price: '₹999.99',
         oldPrice: '₹1299.99',
         discount: '23% off',
@@ -104,7 +140,7 @@ const categories = [
       {
         id: 3,
         title: 'Smartphone Charger',
-        image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
+        image: '	https://m.media-amazon.com/images/I/51LxUhwzVML._AC_UY327_FMwebp_QL65_.jpg',
         price: '₹299.99',
         oldPrice: '₹399.99',
         discount: '25% off',
@@ -112,7 +148,45 @@ const categories = [
         description: 'Fast charging for all smartphone models.'
       }
     ]
+  },
+  {
+    name: 'Home & Kitchen',
+    products: [
+      {
+        id: 1,
+        title: 'Scotch-Brite Sponge Wipe Resusable Kitchen',
+        image: 'https://m.media-amazon.com/images/I/81hyQcJjfXL._AC_UL480_FMwebp_QL65_.jpg',
+        price: '₹149.99',
+        oldPrice: '₹199.99',
+        discount: '33% off',
+        rating: 4.5,
+        description: 'Cleanses your home and kitchen gently.',
+        onSale: true
+      },
+      {
+        id: 2,
+        title: 'HIT Anti Roach Gel - Cockroach Killer',
+        image: 'https://m.media-amazon.com/images/I/71hhQA1kthL._AC_UL480_FMwebp_QL65_.jpg',
+        price: '₹149.99',
+        oldPrice: '₹199.99',
+        discount: '33% off',
+        rating: 4.5,
+        description: 'Cleanses your home and kitchen gently.'
+      },
+      {
+        id: 3,
+        title: 'Cri8Hub Stainless Steel 2 Tiered Shelf Kitchen',
+        image: 'https://m.media-amazon.com/images/I/51l4OxbiUkL._AC_UL480_FMwebp_QL65_.jpg',
+        price: '₹149.99',
+        oldPrice: '₹199.99',
+        discount: '33% off',
+        rating: 4.5,
+        description: 'Cleanses your home and kitchen gently.'
+      }
+      
+    ]
   }
+
 ];
 
 const CategoriesPage = () => {
@@ -186,7 +260,9 @@ const goToDetailPage = (id) =>{
                     <Card.Img variant="top" src={product.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto' }} />
                   </div>
                   <Card.Body className="d-flex flex-column">
-                    <Card.Title className="text-truncate">{product.title}</Card.Title>
+                    {/* <Card.Title className="text-truncate">{product.title}</Card.Title> */}
+                <h1 className="text-truncate Text-css">{product.title}</h1>
+
                     <Card.Text className="text-muted text-truncate">{product.description}</Card.Text>
                     <div className="mt-auto d-flex justify-content-between align-items-center">
                       <h6 className="mb-0 text-primarys">

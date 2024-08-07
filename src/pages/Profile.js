@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    name: 'John Wick',
-    email: 'john.Wick@example.com',
-    phone: '+911234567890',
-    address: '42A Nanak Nagar Indore'
+    name: '',
+    email: '',
+    phone: '',
+    address: ''
   });
+
+  useEffect(() => {
+    const storedUserData = JSON.parse(localStorage.getItem('user')) || {};
+    setFormData({
+      name: storedUserData.username || 'John Wick',
+      email: storedUserData.email || 'john.Wick@example.com',
+      phone: storedUserData.phone || '+911234567890',
+      address: storedUserData.address || '42A Nanak Nagar Indore'
+    });
+  }, []);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -21,8 +31,13 @@ const Profile = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
-    // Handle saving the profile data
-    console.log('Profile updated:', formData);
+    
+    localStorage.setItem('user', JSON.stringify({
+      username: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      address: formData.address
+    }));
     setIsEditing(false);
   };
 
@@ -35,7 +50,7 @@ const Profile = () => {
       <Row>
         <Col md={4} className="mb-4">
           <Card className="border-0 shadow-sm">
-            <Card.Img variant="top" src="https://via.placeholder.com/150" />
+            <Card.Img variant="top" style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto' }} src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659652_640.png" />
             <Card.Body>
               <Card.Title className="text-center">User Profile</Card.Title>
               {isEditing ? (

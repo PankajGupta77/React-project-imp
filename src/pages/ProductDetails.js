@@ -8,17 +8,16 @@ import "./page.css"
 const product = {
   id: 1,
   images: [
-    'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
-    'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/u/i/h/2in1-automatic-convertible-transforming-robot-car-toy-with-light-original-imah2njfxethnj3r.jpeg?q=70'
+    'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/v/d/v/75-20-particle-board-8-9-mc-rw-01-macwud-75-32-wenge-original-imahyy5yhh8s3zya.jpeg?q=70',
   ],
   sku: 'RC1234',
-  name: 'WISHKEY Remote Control Super High Speed Racing Car',
+  name: 'MACWUD New Design Stylish 32 inch TV Entertainment Unit Wall Unit/ Tv Unit Engineered Wood TV Entertainment Unit  (Finish Color - Wenge, DIY(Do-It-Yourself))',
   size: 'Medium',
   color: 'Red',
-  description: 'Durable remote control car with high speed and LED lights.',
+  description: 'Battery Details- Type: Tall tubular batteryCapacity : 230Ah/12V: Construction: rugged construction #487,428 in Home & Kitchen (',
   price: '₹99.99',
   reviews: [
-    { rating: 5, comment: 'Amazing car! My kids love it.' },
+    { rating: 5, comment: 'It is good' },
     { rating: 4, comment: 'Good quality but a bit pricey.' },
     { rating: 2, comment: 'Poor Quality not working' }
   ],
@@ -26,36 +25,36 @@ const product = {
   percentage:'33% off',
   relatedProducts: [
     {
-      id: 2,
-      image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/u/i/h/2in1-automatic-convertible-transforming-robot-car-toy-with-light-original-imah2njfxethnj3r.jpeg?q=70',
-      title: 'Chigy Wooh 3D Famous Remote Control Car For Kids High',
-      price: '₹89.99',
-      rating: 2.8,
+      id: 1,
+      image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/v/d/v/75-20-particle-board-8-9-mc-rw-01-macwud-75-32-wenge-original-imahyy5yhh8s3zya.jpeg?q=70',
+      title: 'MACWUD New Design Stylish 32 inch TV Entertainment',
       description: 'Durable headphones with deep bass and clear treble.',
+      price: '₹99.99',
+      rating: 1.5,
       oldPrice: '₹799.99',
       discount: '25% off',
-
+      onSale: true
     },
     {
       id: 3,
-      image: 'https://rukminim2.flixcart.com/image/612/612/khuvxjk0-0/vehicle-pull-along/x/w/y/friction-powered-mini-monster-cars-for-kids-with-big-rubber-original-imafxruqgz7rw4xw.jpeg?q=70',
-      title: 'fizz Monster Truck Rock Crawler metal',
-      price: '₹109.99',
-      rating: 2.8,
-      description: 'Durable headphones with deep bass and clear treble.',
-      oldPrice: '₹799.99',
-      discount: '25% off',
-
-    },
-    {
-      id: 4,
-      image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/1/r/x/remote-controlled-rock-crawler-rc-monster-truck-4-wheel-drive-1-original-imahyh9vssmzggtn.jpeg?q=70',
-      title: 'CADDLE & TOES Rock Car Remote Control',
+      image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/b/w/9/-original-imagtjkhtf4a6dgt.jpeg?q=70',
+      title: 'ANIKAA Laura Engineered Wood TV Entertainment Unit',
       description: 'Durable headphones with deep bass and clear treble.',
       price: '₹109.99',
       rating: 4.8,
       oldPrice: '₹799.99',
       discount: '25% off',
+    },
+    {
+      id: 4,
+      image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/s/g/p/-original-imagrtbkkrxfdxeu.jpeg?q=70',
+      title: 'Flipkart Perfect Homes Kamet Engineered Wood TV',
+      description: 'Durable headphones with deep bass and clear treble.',
+      price: '₹109.99',
+      rating: 4.8,
+      oldPrice: '₹799.99',
+      discount: '25% off',
+      onSale: true
     }
   ]
 };
@@ -66,7 +65,7 @@ const ProductDetails = () => {
   const Gotocartpage = () => {
     navigate(`/cart`);
   };
-  const [selectedImage, setSelectedImage] = useState(product.images[0]);
+  const [selectedImage] = useState(product.images[0]);
   const [newReview, setNewReview] = useState({ rating: 0, comment: '' });
 
   const handleReviewChange = (e) => {
@@ -104,10 +103,10 @@ const ProductDetails = () => {
           </div>
         </Col>
         <Col md={6}>
-          <h1>{product.name}</h1>
-          <p><strong>SKU:</strong> {product.sku}</p>
-          <p><strong>Size:</strong> {product.size}</p>
-          <p><strong>Color:</strong> {product.color}</p>
+          <h1 className='Details-page-main-Title mt-1'>{product.name}</h1>
+          <p><strong className='Details-page-main-containt'>SKU:</strong> <span className='Details-page-main-containt-data'>{product.sku}</span></p>
+          <p><strong className='Details-page-main-containt'>Size:</strong><span className='Details-page-main-containt-data'> {product.size}</span></p>
+          <p><strong className='Details-page-main-containt'>Color:</strong><span className='Details-page-main-containt-data'> {product.color}</span></p>
           <p>{product.description}</p>
           <h3>{product.price}<span>
           <span className='price-delete'>{product.delete}</span>
@@ -122,10 +121,12 @@ const ProductDetails = () => {
     <Col key={item.id} md={4} className="mb-4">
       <Card className="h-100 shadow-sm card-hover" style={{ cursor: 'pointer' }}>
         <div className="d-flex justify-content-center" style={{ height: '253px' }}>
-          <Card.Img variant="top" src={item.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto' }} />
+          <Card.Img variant="top" src={item.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto',minWidth:'-webkit-fill-available' }} />
         </div>
         <Card.Body className="d-flex flex-column">
-          <Card.Title className="text-truncate">{item.title}</Card.Title>
+          {/* <Card.Title className="text-truncate">{item.title}</Card.Title> */}
+                <h1 className="text-truncate Text-css">{item.title}</h1>
+
           <Card.Text className="text-muted text-truncate">{item.description}</Card.Text>
           <div className="mt-auto d-flex justify-content-between align-items-center">
           <h6 className="mb-0 text-primarys">

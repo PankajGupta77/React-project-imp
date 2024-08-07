@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 import "./page.css"
 import { useNavigate } from 'react-router-dom';
@@ -20,10 +20,6 @@ const Checkout = () => {
   const ordeconfiramtion = () => {
     navigate('/order')
   }
-  const [address, setAddress] = useState({
-    shipping: '180 North King Street, Northhampton MA 1060',
-    billing: '180 North King Street, Northhampton MA 1060'
-  });
   return (
 
     <div className="container py-4">
@@ -121,11 +117,11 @@ const Checkout = () => {
               </div>
               <div className="mb-4">
                 <h6 className="mb-3">Shipping Address</h6>
-                <p className="text-muted">180 North King Street, Northhampton MA 1060</p>
+                <p className="text-muted">123 Main St,Apt 1 front of 4th Floor,452001,India</p>
               </div>
               <div className="mb-4">
                 <h6 className="mb-3">Billing Address</h6>
-                <p className="text-muted">180 North King Street, Northhampton MA 1060</p>
+                <p className="text-muted">123, MG Road,Near Central Mall,Gwalior,476115,India</p>
               </div>
               <div className="d-flex justify-content-center">
                 <button className="btn btn-outline-dark" onClick={ChangeAdress}>Change Address</button>

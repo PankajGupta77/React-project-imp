@@ -1,0 +1,28 @@
+.order-page-container {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .card-img-top {
+    height: 250px;
+    object-fit: contain;
+  }
+  
+  .card-title {
+    font-weight: 600;
+  }
+  
+  .badge {
+    font-size: 0.9rem;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #b30000;
+    border-color: #0056b3;
+  }
+  

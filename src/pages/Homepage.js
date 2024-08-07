@@ -9,8 +9,8 @@ import StarRating from './StarRating';
 const products = [
   {
     id: 1,
-    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/n/a/m/famous-car-remote-control-3d-with-led-lights-chargeable-1-caddle-original-imahfbqryyaxct5n.jpeg?q=70',
-    title: 'WISHKEY Remote Control Super High Speed Racing Car',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/v/d/v/75-20-particle-board-8-9-mc-rw-01-macwud-75-32-wenge-original-imahyy5yhh8s3zya.jpeg?q=70',
+    title: 'MACWUD New Design Stylish 32 inch TV Entertainment',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹99.99',
     rating: 1.5,
@@ -20,8 +20,8 @@ const products = [
   },
   {
     id: 3,
-    image: 'https://rukminim2.flixcart.com/image/612/612/khuvxjk0-0/vehicle-pull-along/x/w/y/friction-powered-mini-monster-cars-for-kids-with-big-rubber-original-imafxruqgz7rw4xw.jpeg?q=70',
-    title: 'fizz Monster Truck Rock Crawler metal',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/b/w/9/-original-imagtjkhtf4a6dgt.jpeg?q=70',
+    title: 'ANIKAA Laura Engineered Wood TV Entertainment Unit',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
     rating: 4.8,
@@ -30,8 +30,8 @@ const products = [
   },
   {
     id: 4,
-    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/1/r/x/remote-controlled-rock-crawler-rc-monster-truck-4-wheel-drive-1-original-imahyh9vssmzggtn.jpeg?q=70',
-    title: 'CADDLE & TOES Rock Car Remote Control',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/s/g/p/-original-imagrtbkkrxfdxeu.jpeg?q=70',
+    title: 'Flipkart Perfect Homes Kamet Engineered Wood TV',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
     rating: 4.8,
@@ -41,8 +41,8 @@ const products = [
   },
   {
     id: 5,
-    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/e/j/2/-original-imah38cqkehzsryg.jpeg?q=70',
-    title: 'Aganta Remote Control Car Electronic 3D Lights',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/l/s/w/20-130-mdf-15-tv-cabinet-entertainment-unit-aariwoody-futuristic-original-imahyyr4vb8kgrfx.jpeg?q=70',
+    title: 'Flipkart Perfect Homes Phonox Engineered Wood TV',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
     rating: 2.8,
@@ -51,8 +51,8 @@ const products = [
   },
   {
     id: 6,
-    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/drone/i/e/y/100-60-1-4k-wifi-dual-camera-drone-for-adults-kids-with-2-original-imahfzm9pa8tz6y4.jpeg?q=70',
-    title: 'AR KIDS TOYS Mini Monster Truck Friction',
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/i/i/h/20-particle-board-128-8-6-sn-097-snq-81-42-black-white-original-imagqq7yjr3x3hft.jpeg?q=70',
+    title: 'SNQ Engineered Wood Wall Mount TV Unit/TV Stand/TV',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
     rating: 4.8,
@@ -61,8 +61,19 @@ const products = [
   },
   {
     id: 7,
-    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/remote-control-toy/a/i/q/-original-imagz5qebmefu4y9.jpeg?q=70',
-    title: 'CADDLE & TOES Rock Car Remote Control ',
+    image: 'https://rukminim2.flixcart.com/image/612/612/l071d3k0/tv-entertainment-unit/m/0/o/-original-imagcfhne9zbhema.jpeg?q=70',
+    title: 'Flipkart Perfect Homes Sirena Engineered Wood TV',
+    description: 'Durable headphones with deep bass and clear treble.',
+    price: '₹109.99',
+    rating: 4.8,
+    oldPrice: '₹799.99',
+    discount: '25% off',
+    onSale: true
+  },
+  {
+    id: 7,
+    image: 'https://rukminim2.flixcart.com/image/612/612/xif0q/tv-entertainment-unit/b/r/g/36-140-particle-board-24-6-tu-skd-lf-bluewud-59-5-55-walnut-original-imagg2fkq89fv5ja.jpeg?q=70',
+    title: 'Flipkart Perfect Homes Kamet Engineered Wood TV',
     description: 'Durable headphones with deep bass and clear treble.',
     price: '₹109.99',
     rating: 4.8,
@@ -119,10 +130,10 @@ const Homepage = () => {
             <Card className="h-100 shadow-sm" onClick={() => goToDetailPage(product.id)} style={{ cursor: 'pointer' }}>
             {product.onSale && <span className="sale-badge">Sale!</span>}
               <div className="d-flex justify-content-center" style={{ height: '250px' }}>
-                <Card.Img variant="top" src={product.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto' }} />
+                <Card.Img className='Large-Small-screen' variant="top" src={product.image} style={{ objectFit: 'contain', padding: '10px', maxHeight: '100%', width: 'auto',minWidth:'-webkit-fill-available' }} />
               </div>
               <Card.Body className="d-flex flex-column">
-                <Card.Title className="text-truncate">{product.title}</Card.Title>
+                <h1 className="text-truncate Text-css">{product.title}</h1>
                 <Card.Text className="text-muted text-truncate">{product.description}</Card.Text>
                 <div className="mt-auto d-flex justify-content-between align-items-center">
                   {/* <h6 className="mb-0 text-primarys">{product.price}<span className='price-delete'>₹21,999</span><span className='percentage-off'>23% off</span></h6> */}

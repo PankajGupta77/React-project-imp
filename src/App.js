@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {  Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import CategoriesPage from './pages/Categories';
 import ProductDetails from './pages/ProductDetails';
@@ -7,30 +7,38 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import UserAccount from './pages/UserAccount';
 import Header from './components/Header';
-// import OrderDetails from './pages/order';
 import Address from './pages/Adress';
 import OrderPage from './pages/OrderPage';
-import OrderDetilas from './pages/orderDetails';
+import OrderDetails from './pages/orderDetails';
 import Profile from './pages/Profile';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
 
-function App() {
+const App = () => {
+  const location = useLocation();
+  const isAuthenticated = () => !!localStorage.getItem('user');
+  const isAuthPage = location.pathname === '/signup' || location.pathname === '/login';
+
   return (
-    <Router>
-      <Header />
+    <>
+      {!isAuthPage && <Header />}
       <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/category" element={<CategoriesPage />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/order" element={<OrderPage />} />
-        <Route path="/address" element={<Address />} />
-        <Route path="/account" element={<UserAccount />} />
-        <Route path="/orderDetails" element={<OrderDetilas />} />
-        <Route path="/Profile" element={<Profile />} />
+        <Route path="/" element={<Navigate to="/signup" />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={isAuthenticated() ? <Homepage /> : <Navigate to="/signup" />} />
+        <Route path="/category" element={isAuthenticated() ? <CategoriesPage /> : <Navigate to="/login" />} />
+        <Route path="/product/:id" element={isAuthenticated() ? <ProductDetails /> : <Navigate to="/login" />} />
+        <Route path="/cart" element={isAuthenticated() ? <Cart /> : <Navigate to="/login" />} />
+        <Route path="/checkout" element={isAuthenticated() ? <Checkout /> : <Navigate to="/login" />} />
+        <Route path="/order" element={isAuthenticated() ? <OrderPage /> : <Navigate to="/login" />} />
+        <Route path="/address" element={isAuthenticated() ? <Address /> : <Navigate to="/login" />} />
+        <Route path="/account" element={isAuthenticated() ? <UserAccount /> : <Navigate to="/login" />} />
+        <Route path="/orderDetails" element={isAuthenticated() ? <OrderDetails /> : <Navigate to="/login" />} />
+        <Route path="/profile" element={isAuthenticated() ? <Profile /> : <Navigate to="/login" />} />
       </Routes>
-    </Router>
+    </>
   );
-}
+};
 
 export default App;

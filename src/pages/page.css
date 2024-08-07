@@ -93,3 +93,85 @@
   padding: 32px 32px 24px;
   font-weight: 500;
 }
+
+.Text-css{
+  font-size: 18px;
+  /* padding: 32px 32px 24px; */
+  font-weight: 500;
+}
+.Details-page-main-containt{
+  font-size: 14px !important;
+  line-height: 20px !important;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+.Details-page-main-Title{
+  font-size: 24px !important;
+  line-height: 32px !important;
+  font-weight: 400;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+.Details-page-main-containt-data{
+  font-size: 14px !important;
+    line-height: 20px !important;
+}
+.Empty-card{
+  border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+
+
+/* Accout-css */
+
+.user-account-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.user-account-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.user-account-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon-container {
+  text-align: center;
+  color: #007bff;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.Title-card-order{
+  font-size: 16px;
+    font-weight: 500;
+}
+.Sub-Title-card-order{
+  font-size: 16px;
+  font-weight: 400;
+}
+.Large-Small-screen{
+  min-width: -webkit-fill-available;
+}
+.fw-bold-fc{
+  font-weight: 500;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
